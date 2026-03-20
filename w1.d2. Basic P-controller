@@ -1,0 +1,13 @@
+sensor = int(input("Enter sensor value (0-1023): "))
+
+setpoint = 700          # Desired "target" value (e.g., mid-brightness)
+Kp = 0.5                # Proportional gain – experiment with this!
+
+error = setpoint - sensor          # How far off we are
+    # Proportional control: output scales with error
+output = max(0, min(255, int(Kp * abs(error))))  # Clamp 0–255, use abs for demo
+
+print(f"Sensor: {sensor:4d} | Error: {error:+4d} | Output (brightness): {output:3d}")
+
+
+#Remember its like adjusting the accelerator while driving
