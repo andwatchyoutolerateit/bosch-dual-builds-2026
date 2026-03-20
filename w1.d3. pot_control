@@ -1,0 +1,28 @@
+# Day 3: Proportional + Threshold Control Simulation
+import random
+import time
+
+setpoint = 700          # Target value (e.g., desired brightness/position)
+Kp = 0.8                # Proportional gain – tune this!
+threshold = 700         # Alarm threshold (same as Tinkercad)
+
+for cycle in range(40):
+    # Fake sensor (simulate pot twist)
+    sensor = random.randint(0, 1023) + random.gauss(0, 50)  # Add some noise for realism
+    sensor = max(0, min(1023, sensor))                      # Clamp
+
+    error = setpoint - sensor
+
+    # Proportional output (for "main" actuator)
+    output = max(0, min(255, int(Kp * abs(error))))         # Use abs for demo; in real PID it's signed
+
+    # Threshold decision (alarm)
+    if sensor > threshold:
+        alarm = "ON  (High!)"
+    else:
+        alarm = "OFF"
+
+    print(f"Cycle {cycle+1:2d} | Sensor: {sensor:4.0f} | Error: {error:+5.0f} | "
+          f"Output: {output:3d} | Alarm: {alarm}")
+
+    time.sleep(0.5)  # Watch changes
