@@ -27,3 +27,23 @@ just my passion projects
 - Analog sensors (pot → position/temp/pressure) common in Bosch actuators.
 - Proportional control = basic speed/position regulation before full PID in Regelungstechnik.
 - Prepares for motor control, valve positioning, or sensor-based automation in Praxisphasen.
+
+## Day 3 / Week 1: Threshold + Proportional Control (Two LEDs)
+
+**Tinkercad Circuit Update:**
+- Pot on A0 → proportional brightness on LED pin 9.
+- Threshold >700 → second "alarm" LED on pin 10 turns ON.
+
+![Low](week1/images/tinkercad-pot-two-leds-low.png)
+![Mid](week1/images/tinkercad-pot-two-leds-mid.png)
+![High](week1/images/tinkercad-pot-two-leds-high.png)
+
+**Python Simulation:** Added threshold alarm + gain (Kp) experiments.
+
+**Bosch / Real-World Tie-in:**
+- Threshold logic = safety interlocks, over-current/temp warnings in Bosch controllers.
+- Proportional + threshold combo = common in motor drives (speed control + stall/over-limit protection).
+- Builds intuition for hybrid continuous/discrete control in Regelungstechnik & automation praxis.
+- Prepares for full PID (derivative term next week) and unstable systems like inverted pendulum.
+
+Learnings: Higher Kp makes response faster but can cause instability in closed-loop systems.
