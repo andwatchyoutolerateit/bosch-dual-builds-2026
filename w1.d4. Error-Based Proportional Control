@@ -1,0 +1,20 @@
+import time
+
+setpoint = 512
+Kp_values = [0.5, 1.0, 2.0, 4.0] #Try each gain
+
+for Kp in Kp_values:
+    print(f"/n=== Testing {Kp} ===")
+    sensor = 300
+    
+    for cycle in range(15):
+        error = setpoint - sensor
+        output = max(0, min(255, abs(int((Kp)*error))))
+
+        #fake plant dynamics
+        sensor += 0.3*output
+        sensor = max(0, min(1023, sensor))
+        alarm = "ON" if abs(error) > 300 else "OFF"
+        print(f"Cycle {cycle+1:2d} | Sensor: {sensor:4.0f} | Error: {error:+5.0f} | "
+          f"Output: {output:3d} | Alarm: {alarm}")
+        time.sleep(0.4)  # Watch changes
