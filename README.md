@@ -47,3 +47,15 @@ just my passion projects
 - Prepares for full PID (derivative term next week) and unstable systems like inverted pendulum.
 
 Learnings: Higher Kp makes response faster but can cause instability in closed-loop systems.
+
+## Day 4: Error-Based Proportional Control (Closed-Loop Intro)
+
+**Tinkercad:** Setpoint tracking with error → brightness + alarm  
+**Python Lab:** Tuned Kp=0.5 to 4.0 — saw stability vs oscillation
+
+**Bosch Tie-in (Praxisphasen gold):**
+- Exact same error = setpoint – actual used in every Bosch motor controller and automation system.
+- This is Regelungstechnik Semester 2/3 in action: P-control before adding I and D terms.
+- When I show this in my next Praxis report, mentor will see I already understand closed-loop systems.
+
+GitHub video tip: Record 20 sec screen (Tinkercad + Python running side-by-side).
